@@ -23,10 +23,10 @@ public class PersonApi {
 	@Test
 	public void insertPerson(String name, String age, String comments) {
 		
-		SortedMap<String, String> contentInsert = new TreeMap<String, String>();
-		contentInsert.put("name",	  name);
-		contentInsert.put("age",	  age);
-		contentInsert.put("comments", comments);
+		SortedMap<String, String> contentInsertion = new TreeMap<String, String>();
+		contentInsertion.put("name",	  name);
+		contentInsertion.put("age",	  age);
+		contentInsertion.put("comments", comments);
 		
 		RestAssured.baseURI = ManagerFileUtils.getUrlFromJson("My_Heroku_API_Url");
 		RequestSpecification request = RestAssured
@@ -37,7 +37,7 @@ public class PersonApi {
 				HeaderClass.getToken()
 			)
 			.contentType(ContentType.JSON)
-			.body(contentInsert);
+			.body(contentInsertion);
 		
 		Response response =	
 			request
