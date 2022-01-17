@@ -1,0 +1,6 @@
+{
+	"Google": "https://www.google.com",
+	"My_Heroku_API_Url": "https://demo-spring-boot-npml.herokuapp.com/",
+	"Star_Wars_Url": "https://swapi.dev/api/",
+	"TodoList": "https://todomvc-socketstream.herokuapp.com"
+}
