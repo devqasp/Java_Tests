@@ -18,16 +18,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.junit.jupiter.api.Assertions;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.java.automation.api.model.ResponseClass;
+
+import org.apache.commons.lang3.StringUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.junit.jupiter.api.Assertions;
 
 import io.cucumber.datatable.DataTable;
 
@@ -120,7 +120,6 @@ public class GlobalUtils {
 	 * Gera uma String, à partir de um Objeto Map (SortedMap<String, String>),
 	 * que reflete o formato de um arquivo JSON.
 	 */
-	@SuppressWarnings("serial")
 	public static String generateStringJSONFormat(SortedMap<String, String> sortedMap) {
 
 		Gson gson = new Gson();
