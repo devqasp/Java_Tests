@@ -14,21 +14,21 @@
 
 		<!-- MAVEN CONFIGURATIONS -->
 		<maven-compiler-plugin>3.8.1</maven-compiler-plugin>
-		<maven-compiler-target>11</maven-compiler-target>
-		<maven-compiler-source>11</maven-compiler-source>
+		<maven-compiler-target>17</maven-compiler-target>
+		<maven-compiler-source>17</maven-compiler-source>
 		<maven-failsafe-plugin>3.0.0-M5</maven-failsafe-plugin>
 		<maven-resources-plugin>3.2.0</maven-resources-plugin>
 		<maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
 		<!-- ALLURE REPORT -->
 		<allure-maven.version>2.10.0</allure-maven.version>
-		<allure-report.version>2.17.2</allure-report.version>
+		<allure-report.version>2.17.3</allure-report.version>
 		<!-- APACHE COMMONS-IO -->
-		<commons-io.version>2.8.0</commons-io.version>
+		<commons-io.version>2.11.0</commons-io.version>
 		<!-- ASPECTJ -->
 		<aspectj.version>1.9.7</aspectj.version>
 		<aspectj-core.version>3.20.2</aspectj-core.version>
 		<!-- CLUECUMBER REPORT -->
-		<cluecumber-report.version>2.7.0</cluecumber-report.version>
+		<cluecumber-report.version>2.8.0</cluecumber-report.version>
 		<!-- CUCUMBER -->
 		<cucumber.version>6.11.0</cucumber.version>
 		<!-- FEST ASSERT -->
@@ -37,20 +37,20 @@
 			<fest-assert-core.version>2.0M10</fest-assert-core.version>
 		-->
 		<!-- JACKSON -->
-		<fasterxml-jackson.version>2.12.4</fasterxml-jackson.version>
+		<fasterxml-jackson.version>2.13.3</fasterxml-jackson.version>
 		<!-- GSON -->
-		<gson.version>2.8.8</gson.version>
+		<gson.version>2.8.9</gson.version>
 		<!-- HAMCREST -->
 		<hamcrest.version>2.2</hamcrest.version>
 		<!-- JSON SIMPLE -->
 		<json-simple.version>1.1.1</json-simple.version>
 		<!-- JUNIT -->
-		<junit-jupiter.version>5.8.0-RC1</junit-jupiter.version>
-		<junit-vintage-engine.version>5.8.0-RC1</junit-vintage-engine.version>
+		<junit-jupiter.version>5.9.0-M1</junit-jupiter.version>
+		<junit-vintage-engine.version>5.9.0-M1</junit-vintage-engine.version>
 		<!-- REST ASSURED -->
 		<rest-assured.version>4.4.0</rest-assured.version>
 		<!-- SELENIUM JAVA -->
-		<selenium-java.version>3.141.59</selenium-java.version>
+		<selenium-java.version>4.1.1</selenium-java.version>
 		<!-- <selenium-java.version>4.1.1</selenium-java.version> -->
 		<!-- SLF4J -->
 		<slf4j.version>1.7.32</slf4j.version>
@@ -59,22 +59,34 @@
 	</properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
-		<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-java-commons</artifactId>
-			<version>${allure-report.version}</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber6-jvm -->
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
 			<artifactId>allure-cucumber6-jvm</artifactId>
 			<version>${allure-report.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-java-commons</artifactId>
+			<version>${allure-report.version}</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
 			<artifactId>allure-junit5</artifactId>
+			<version>${allure-report.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-plugin-api -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-plugin-api</artifactId>
+			<version>${allure-report.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
 			<version>${allure-report.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
@@ -270,10 +282,14 @@
 					</goals>
 					<configuration>
 						<includes>
-							<include>**/CucumberRunner*.java</include>
+							<include>**/Cucumber*.java</include>
 						</includes>
-						<parallel>classesAndMethods</parallel>
-						<useUnlimitedThreads>true</useUnlimitedThreads>
+						<!--
+							<threadCount>4</threadCount>
+							<parallel>methods</parallel>
+							<testFailureIgnore>true</testFailureIgnore>
+							<useUnlimitedThreads>true</useUnlimitedThreads>
+						-->
 					</configuration>
 				</execution>
 			</executions>
@@ -330,7 +346,7 @@
 						<cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>
                     </systemPropertyVariables>
 					<testFailureIgnore>true</testFailureIgnore>
-					<threadCount>1</threadCount>
+					<threadCount>4</threadCount>
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<!--
 						<forkMode>once</forkMode> 

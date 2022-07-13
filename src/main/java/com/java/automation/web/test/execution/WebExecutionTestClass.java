@@ -4,6 +4,11 @@ import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
+import com.java.automation.utils.ManagerFileUtils;
+import com.java.automation.utils.WebDriverUtils;
+import com.java.automation.web.browser.factory.BrowserProperties;
+import com.java.automation.web.driver.factory.DriverManager;
+
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,11 +18,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-
-import com.java.automation.utils.ManagerFileUtils;
-import com.java.automation.utils.WebDriverUtils;
-import com.java.automation.web.browser.factory.BrowserProperties;
-import com.java.automation.web.driver.factory.DriverManager;
 
 public class WebExecutionTestClass {
 

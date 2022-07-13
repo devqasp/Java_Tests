@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 	glue =
 	{
 		"com.java.automation.runner",
-		"com.java.automation.web.step.definitions",
+		"com.java.automation.ui.step.definitions",
 		"com.java.automation.api.step.definitions",
 		"com.java.automation.api.domain.starwar.root.step.definitions"
 	},
@@ -47,7 +47,7 @@ public class CucumberRunner {
 	@BeforeClass
 	public static void setUp() {
 		
-		ManagerFileUtils.checkAndGenerateFilePath("src/target");
+		ManagerFileUtils.checkAndGenerateFilePath("target/log-exec");
 	}
 
 	@AfterClass

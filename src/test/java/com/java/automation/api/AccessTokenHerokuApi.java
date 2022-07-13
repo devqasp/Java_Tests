@@ -3,10 +3,10 @@ package com.java.automation.api;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.Test;
-
 import com.java.automation.api.model.HeaderClass;
 import com.java.automation.utils.ManagerFileUtils;
+
+import org.junit.jupiter.api.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

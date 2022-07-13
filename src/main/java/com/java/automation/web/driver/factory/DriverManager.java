@@ -4,10 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import com.java.automation.web.browser.factory.BrowserProperties;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-
-import com.java.automation.web.browser.factory.BrowserProperties;
 
 public abstract class DriverManager {
 	

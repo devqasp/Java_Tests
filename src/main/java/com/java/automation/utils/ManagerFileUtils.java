@@ -135,11 +135,15 @@ public class ManagerFileUtils {
 			)
 		);
 		//
-		jsonObject.keySet().forEach(key -> {
-			if (key.toString().equalsIgnoreCase(keyValue)) {
-				map.put(key.toString(), jsonObject.get(key));
+		jsonObject.keySet().forEach(
+			key -> {
+			if (key.toString().equalsIgnoreCase(keyValue))
+				map.put(
+					key.toString(),
+					jsonObject.get(key)
+				);
 			}
-		});
+		);
 		//
 		return map;
 	}

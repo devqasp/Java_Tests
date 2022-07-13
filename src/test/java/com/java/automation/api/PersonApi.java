@@ -5,11 +5,11 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.junit.jupiter.api.Test;
-
 import com.java.automation.api.model.HeaderClass;
 import com.java.automation.api.model.ResponseClass;
 import com.java.automation.utils.ManagerFileUtils;
+
+import org.junit.jupiter.api.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -61,9 +61,9 @@ public class PersonApi {
 	public void updatePersonUsingId(String id, String name, String age, String comment) {
 		
 		Map<String, Object> contentUpdate = new HashMap<>();
-		contentUpdate.put("id",		 id);
-		contentUpdate.put("name",	 name);
-		contentUpdate.put("age",	 age);
+		contentUpdate.put("id",	  id);
+		contentUpdate.put("name",	  name);
+		contentUpdate.put("age",	  age);
 		contentUpdate.put("comment", comment);
 		
 		RestAssured.baseURI = ManagerFileUtils.getUrlFromJson("My_Heroku_API_Url");
@@ -71,7 +71,8 @@ public class PersonApi {
 			.given()
 			.header(
 				"Authorization",
-				HeaderClass.getToken())
+				HeaderClass.getToken()
+			)
 			.contentType(ContentType.JSON)
 			.body(contentUpdate);
 		
@@ -101,7 +102,8 @@ public class PersonApi {
 			.given()
 			.header(
 				"Authorization",
-				HeaderClass.getToken())
+				HeaderClass.getToken()
+			)
 			.contentType(ContentType.JSON);
 		
 		Response response = httpRequest.get("api/usr/persons");
@@ -128,7 +130,8 @@ public class PersonApi {
 			.given()
 			.header(
 				"Authorization",
-				HeaderClass.getToken())
+				HeaderClass.getToken()
+			)
 			.contentType(ContentType.JSON);
  
 		Response response = request.get(String.format("api/usr/person/%s", id));
@@ -143,7 +146,7 @@ public class PersonApi {
 				response.body().asPrettyString()
 			)
 		);
-		
+	
 		ResponseClass.setResponse(response.body().asString());
 	}
 	
@@ -156,7 +159,8 @@ public class PersonApi {
 			.given()
 			.header(
 				"Authorization",
-				HeaderClass.getToken())
+				HeaderClass.getToken()
+			)
 			.contentType(ContentType.JSON);
 		
 		Response response = request.delete(String.format("api/usr/person/%s", id));

@@ -2,6 +2,9 @@ package com.java.automation.utils;
 
 import java.time.Duration;
 
+import com.java.automation.web.driver.factory.DriverManager;
+import com.java.automation.web.driver.factory.DriverManagerFactory;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +13,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-
-import com.java.automation.web.driver.factory.DriverManager;
-import com.java.automation.web.driver.factory.DriverManagerFactory;
 
 public class WebDriverUtils {
 

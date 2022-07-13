@@ -37,7 +37,12 @@ public class WebHook {
 		}
 		//
 		if (getTagNames()[0].contains("@ui"))
-			WebDriverUtils.getDriverManager().getDriver();
+			WebDriverUtils
+				.getDriverManager()
+				.getDriver()
+				.manage()
+				.window()
+				.maximize();
 	}
 
 	@After

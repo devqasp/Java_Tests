@@ -17,6 +17,6 @@ public class JavaCMDLineClass {
 		return
 			JavaCMDLineClass.BROWSER_VERSION.isEmpty() ||
 			JavaCMDLineClass.BROWSER_VERSION == null ?
-				"dev" : JavaCMDLineClass.ENV;
+				"" : JavaCMDLineClass.ENV;
 	}
 }

@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import com.java.automation.utils.DriverPathUtils;
 import com.java.automation.utils.GlobalUtils;
 import com.java.automation.utils.ManagerFileUtils;
 import com.java.automation.web.driver.factory.DriverManager;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverManager_v2 extends DriverManager {
 
@@ -51,7 +51,12 @@ public class ChromeDriverManager_v2 extends DriverManager {
 		chromeOptions.setExperimentalOption("prefs", prefs);
 		chromeOptions.setExperimentalOption("useAutomationExtension", false);
 
-		DriverManager.addDriver(new ChromeDriver(chromeService, chromeOptions));
+		DriverManager.addDriver(
+			new ChromeDriver(
+				chromeService,
+				chromeOptions
+			)
+		);
 	}
 
 	private String[] getArguments() {
@@ -66,7 +71,7 @@ public class ChromeDriverManager_v2 extends DriverManager {
 			"--disable-low-res-tiling",
 			"--disable-popup-blocking",
 			"--disable-web-security",
-			"----headless",
+			"--headless",
 			"--ignore-gpu-blacklist",
 			// "--incognito",
 			"--lang=pt-BR",
@@ -92,7 +97,7 @@ public class ChromeDriverManager_v2 extends DriverManager {
 									"%s/%s_driver_%s.log",
 									ManagerFileUtils.checkAndGenerateFilePath(
 										DriverPathUtils.getFilePathUsingOSName(
-											"src/test/target/log-exec"
+											"target/log-exec"
 										)
 									),
 									this.browserName,
